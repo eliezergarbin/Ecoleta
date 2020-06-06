@@ -224,7 +224,7 @@ const CreatePoint = () => {
                             </select>
                         </div>
                         <div className="field">
-                            <label htmlFor="city">Cidade (UF)</label>
+                            <label htmlFor="city">Cidade</label>
                             <select 
                                 name="city" 
                                 id="city"
