@@ -1,10 +1,12 @@
 import React, {useEffect, useState, ChangeEvent, FormEvent } from 'react'; 
 import {Link, useHistory } from 'react-router-dom';
-import {FiArrowLeft} from 'react-icons/fi';
+import {FiArrowLeft, FiCheckCircle} from 'react-icons/fi';
 import {Map, TileLayer, Marker} from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
 import axios from 'axios'
 import api from '../../services/api'
+
+import Dropzone from '../../components/Dropzone'
 
 import './styles.css';
 import logo from '../../assets/logo.svg';
@@ -42,6 +44,9 @@ const CreatePoint = () => {
     const [selectedCity, setSelectedCity] = useState('0');
     const [selectedItems, setSelectedItems] = useState<number[]>([]);
     const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0])
+    const [selectedFile, setSelectedFile] = useState<File>();
+
+    const[finished, setFinished] = useState(false)
 
     const history = useHistory();
 
@@ -121,32 +126,43 @@ const CreatePoint = () => {
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
+
         const { name, email, whatsapp } = formData;
         const uf = selectedUf;
         const city = selectedCity;
         const [latitude, longitude] = selectedPosition;
         const items = selectedItems;
 
-        const data = {
-            name,
-            email,
-            whatsapp,
-            uf,
-            city,
-            latitude,
-            longitude,
-            items
-        };
+        const data = new FormData();
 
+            data.append('name', name);
+            data.append('email', email);
+            data.append('whatsapp', whatsapp);
+            data.append('uf', uf);
+            data.append('city', city);
+            data.append('latitude', String(latitude));
+            data.append('longitude', String(longitude));
+            data.append('items', items.join(', '));
+            
+            if (selectedFile) {
+                data.append('image', selectedFile)
+            }
+    
+            
         await api.post('points', data)
-
-        alert('ponto de coleta criado!')
-
-        history.push('/');
-    }
-
-    return (
+        setFinished(true)
+        setTimeout(() => {
+          history.push('/')
+        }, 2000);
+      }
+    
+      return (
         <div id="page-create-point">
+            {
+              finished ? <div id="finished"><FiCheckCircle color="#34CB79" size={60}/> 
+              <h1>Cadastro concluído!</h1>
+             </div> : null
+            }
             <header>
                 <img src={logo} alt="Ecoleta"/>
 
@@ -158,6 +174,8 @@ const CreatePoint = () => {
 
             <form onSubmit={handleSubmit}>
                 <h1>Cadastro do <br /> ponto de coleta</h1>
+
+                <Dropzone onFileUploaded={setSelectedFile} />
 
                 <fieldset>
                     <legend>
