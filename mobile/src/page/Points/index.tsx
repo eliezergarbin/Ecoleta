@@ -32,8 +32,8 @@ const Points = () => {
             <MapView 
                 style={styles.map} 
                 initialRegion={{
-                    latitude: -42.4851612,
-                    longitude: -35.1856821,
+                    latitude: -21.9371716,
+                    longitude: -50.5032109,
                     latitudeDelta: 0.014,
                     longitudeDelta: 0.014,
                 }}
@@ -42,8 +42,8 @@ const Points = () => {
                     style={styles.mapMarker}
                     onPress={handleNavigateToDetail}
                     coordinate={{
-                        latitude: -42.4851612,
-                        longitude: -35.1856821,
+                        latitude: -21.9371716,
+                        longitude: -50.5032109,
                     }}
                 >
                     <View style={styles.mapMarkerContainer}>
