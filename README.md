@@ -15,7 +15,7 @@
     <img alt="Made by EliezerGarbin" src="https://img.shields.io/badge/made%20by-EliezerGarbin-%2304D361">
   </a>
 
-  <a href="https://github.com/DanielObara/NLW-1.0/commits/master">
+  <a href="https://github.com/EliezerGarbin/NLW01-Booster/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EliezerGarbin/NLW01-Booster">
   </a>
 
