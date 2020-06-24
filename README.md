@@ -4,7 +4,7 @@
 </h1>
 
 <h4 align="center"> 
-	:construction: NextLevelWeek 1.0 🚀 Ecoleta :construction:
+	 NextLevelWeek 1.0 🚀 Ecoleta 
 </h4>
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/EliezerGarbin/NLW01-Booster?color=%2304D361">
