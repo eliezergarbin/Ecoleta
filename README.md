@@ -1,7 +1,4 @@
-# NLW01-Booster
-<h1 align="center">
-    <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://github.com/EliezerGarbin/NLW01-Booster/blob/master/githubImg/logo.svg" width="250px" />
-</h1>
+# Ecoleta
 
 <h4 align="center"> 
 	 NextLevelWeek 1.0 🚀 Ecoleta 
